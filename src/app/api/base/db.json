@@ -1,4 +1,5 @@
-[
+{
+	"usuarios": [
 	{
 		"id": 1,
 		"name": "Emma Whitley",
@@ -600,3 +601,4 @@
 		"password": "diam"
 	}
 ]
+}
