@@ -23,7 +23,6 @@ export async function GET(request,{params}) {
     const resposta = getById(lista,id);
     return NextResponse.json(resposta);
   }else{
-    console.log(getAll(lista))
     return id == 0 ? NextResponse.json(getAll(lista)) : NextResponse.redirect("http://localhost:3000/error")
   }
 }
