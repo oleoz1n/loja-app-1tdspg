@@ -18,6 +18,25 @@
                 }
         }
     }
+
+    .linhaCabecalho {
+        @apply bg-slate-400;
+        & th {
+            @apply border text-black font-extrabold;
+        }
+    }
+
+    .linhaCorpo {
+        @apply even:bg-gray-100 odd:bg-gray-50;
+        & td {
+            @apply border;
+        }
+
+        & td:first-child {
+            @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600;
+        }
+    
+    }
 }
 
 @layer utilities {
