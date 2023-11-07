@@ -1,6 +1,15 @@
 import {promises as fs} from "fs";
 import { NextResponse } from "next/server";
 
+function getAll(lista){
+    return lista.usuarios;
+}
+
+function getById(lista,id){
+  return lista.usuarios.find((user)=> user.id == id);
+}
+
+
 export async function GET(request,{params}) {
 
   const file = await fs.readFile(process.cwd() + "/src/app/api/base/db.json", 'utf8');
@@ -11,9 +20,11 @@ export async function GET(request,{params}) {
   const id = params.id;
 
   if(id > 0 && id <= lista.usuarios.length){
-    return NextResponse.json(lista.usuarios.find((user)=> user.id == id));
+    const resposta = getById(lista,id);
+    return NextResponse.json(resposta);
   }else{
-    return id == 0 ? NextResponse.json(lista.usuarios) : NextResponse.redirect("http://localhost:3000/error")
+    console.log(getAll(lista))
+    return id == 0 ? NextResponse.json(getAll(lista)) : NextResponse.redirect("http://localhost:3000/error")
   }
 }
 
